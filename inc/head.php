@@ -1,6 +1,11 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,11 +48,20 @@
                             Cart
                         </a>
                     </li>
+                    <li><a href="logout.php">Log Out</a></li>
+                    <li><a href="login.php">Log In</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
     <div class="container-fluid text-right">
-        <strong>Hello Wilder !</strong>
+        <strong>
+<?php if (isset($_SESSION['login'])): ?>
+      Hello <?=  $_SESSION['login']; ?> !
+<?php else: ?>
+      Hello Wilder !
+            <?php endif; ?>
+        </strong>
+
     </div>
 </header>
