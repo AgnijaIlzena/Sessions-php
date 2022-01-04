@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -48,18 +49,19 @@ session_start();
                             Cart
                         </a>
                     </li>
+                    <?php if(isset($_SESSION['login'])) { ?>
                     <li><a href="logout.php">Log Out</a></li>
-                    <li><a href="login.php">Log In</a></li>
-                </ul>
+                    <?php } ?>
+                   </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
     <div class="container-fluid text-right">
         <strong>
-<?php if (isset($_SESSION['login'])): ?>
-      Hello <?=  $_SESSION['login']; ?> !
-<?php else: ?>
-      Hello Wilder !
+            <?php if (isset($_SESSION['login'])): ?>
+                Hello <?=  $_SESSION['login']; ?> !
+            <?php else: ?>
+                Hello Wilder !
             <?php endif; ?>
         </strong>
 

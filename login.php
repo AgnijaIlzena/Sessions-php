@@ -5,11 +5,11 @@
 $errorMsg = '';
 if (!empty($_POST)) {
     if(!empty($_POST['loginname'])) {
-
         $_SESSION['login'] = $_POST['loginname'];
         header('Location: index.php');
         exit();
     } else {
+       // header('Location: login.php');
         $errorMsg = 'Veuillez inscrire vos identifiants svp !';
     }
 }
@@ -42,6 +42,9 @@ if (!empty($_POST)) {
                                             <input class="form-control" placeholder="Username" name="loginname"
                                                    type="text" autofocus>
                                         </div>
+                                        <div style="color: red">
+                                            <?= $errorMsg ?>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in" name="validate">
@@ -49,11 +52,10 @@ if (!empty($_POST)) {
                                 </div>
                             </div>
                         </fieldset>
+
                     </form>
 
-                    <div style="color: red">
-                        <?= $errorMsg ?>
-                    </div>
+
                 </div>
                 <div class="panel-footer ">
                     Don't have an account ? <a href="#" onClick="">Too bad !</a>
